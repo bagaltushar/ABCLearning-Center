@@ -1,0 +1,135 @@
+/*css reset*/
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/*css variables*/
+:root{
+    --nevbar-height: 59px;
+}
+
+/*navigation bar*/
+#navbar{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+#navbar h1{
+    color: white;
+}
+
+
+/*logo and image*/
+#logo{
+    margin: 0px 0px;
+}
+#logo img{
+    height: 53px;
+    margin: 34px;
+}
+
+
+/*list styling*/
+#navbar ul{
+    display: flex;
+}
+#navbar::before{
+    content: "";
+    background-color: black;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.8;
+
+}
+#navbar ul li{
+    list-style: none;
+    font-size: 1.3rem;
+}
+nav a:hover{
+    background-color:yellow;
+}
+#navbar ul li a{
+    color: white;
+    display: block;
+    padding: 3px 22px;
+     border-radius: 20px;
+     text-decoration: none;
+     font-family: Playball;
+
+}
+#navbar ul li a:hover{
+    color: black;
+    background-color: white;
+}
+
+/*Home section*/
+#home{
+    display: flex;
+    flex-direction: column;
+    padding: 3px 200px ;
+    height: 250px;
+    justify-content: center;
+    align-items: center;
+    
+}
+#home::before{
+    content: "";
+    background: url(img.jpg/home\ page\ .jpg)no-repeat center center/cover;
+    position: absolute;
+    height: 600px;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.4;
+    display: block;
+}
+
+
+/*utility classes*/
+
+.h-primary{
+    font-size: 2.4rem;
+    padding: 12px;
+    font-family: Ubuntu;
+    
+}
+p{
+    font-family: Playball;
+    font-size: 25px;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.btn{
+    padding: 6px 20px;
+    border: 2px rgb(49, 13, 206);
+    background-color: lightseagreen;
+    border-radius: 10px;
+    margin: 17px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    
+}
+.btn:hover{
+    background-color:  lightcoral;
+} 
+footer{
+    background: black;
+    color: white;
+    padding: 40px 10px;
+    text-align: center;
+
+}
+footer a{
+    align-items: center;
+    color: white;
+}
+footer a:hover{
+    background-color:darkorange ;
+}
+
+

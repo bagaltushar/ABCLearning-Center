@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>registration page</title>
+  <link href="registrationstyle.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>ABC LEARNING INSTITUTE</h1>
+      <h2> REGISTRATION FORM</h2>
+    </div>
+    <form class="form" method="post">
+      <div class="form-control">
+        <lable for="username"> User Name</lable>
+        <input id="txtUserName" type="text" name="username" placeholder="Enter Your Name" autocomplete="off">
+        <b><span class="formerror"></span></b>
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <small></small>
+
+      </div>
+      <div class="form-control">
+        <lable for="email">Email</lable>
+        <input id="txtEmail" type="email" name="email" placeholder="Enter Your Email" autocomplete="off">
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <b><span class="formerror"></span></b>
+        <small></small>
+      </div>
+      <div class="form-control">
+        <lable for="phn">Phone</lable>
+        <input id="txtPhn" type="number" name="phn" placeholder="EntarYour Phone Number" autocomplete="off">
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <b><span class="formerror"></span></b>
+        <small></small>
+      </div>
+      <div class="form-control">
+        <lable for="pwd">Password</lable>
+        <input id="txtPwd" type="password" name="pwd" placeholder="Entar Your Password" autocomplete="off">
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <b><span class="formerror"></span></b>
+        <small></small>
+      </div>
+      <div class="form-control">
+        <lable for="conpwd">Confirm Password</lable>
+        <input id="txtConPwd" type="password" name="conpwd" placeholder="Enter Password Again" autocomplete="off">
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <b><span class="formerror"></span></b>
+        <small></small>
+      </div>
+      <br>
+      <div class="form-control">
+        <button id="btn">REGISTER</button><br><br>
+    </form>
+  </div>
+  </form>
+  </div>
+</body>
+
+<script type="text/javascript">
+  const regbutton = document.getElementById("btn");
+  const username = document.getElementById("txtUserName");
+  const email = document.getElementById("txtEmail");
+  const password = document.getElementById("txtPwd");
+  const password2 = document.getElementById("txtConPwd");
+  const mobile = document.getElementById("txtPhn");
+
+
+  var valid = false;
+  regbutton.addEventListener("click", (e) => {
+    e.preventDefault();
+    var isValid = checkInputs()
+    console.log(isValid);
+    // checkInputs(); 
+    if (isValid) {
+      window.location.href = '/demo.html'
+    }
+
+  });
+
+  function checkInputs() {
+    let isvalid = []
+    // trim to remove the whitespaces
+    const usernameValue = username.value.trim();
+    const emailValue = email.value.trim();
+    const mobileValue = mobile.value.trim();
+    const passwordValue = password.value.trim();
+    const password2Value = password2.value.trim();
+
+    if (usernameValue === "") {
+      isvalid.push(false)
+      setErrorFor(username, "Username cannot be blank");
+    } else {
+      setSuccessFor(username);
+    }
+
+    if (emailValue === "") {
+      isvalid.push(false)
+      setErrorFor(email, "Email cannot be blank");
+    } else {
+      setSuccessFor(email);
+    }
+
+    if (mobileValue === "") {
+      isvalid.push(false)
+      setErrorFor(mobile, "Mobile Number cannot be blank");
+    } else {
+      setSuccessFor(mobile);
+    }
+
+
+    if (passwordValue === "") {
+      isvalid.push(false)
+      setErrorFor(password, "Password cannot be blank");
+    } else {
+      setSuccessFor(password);
+    }
+
+    if (password2Value === "") {
+      isvalid.push(false)
+      setErrorFor(password2, "Confirm password cannot be blank");
+    } else if (passwordValue !== password2Value) {
+      isvalid.push(false)
+      setErrorFor(password2, "Confirm password does not match");
+    } else {
+      setSuccessFor(password2);
+    }
+
+
+    return isvalid.length === 0
+  }
+
+
+
+  function setErrorFor(input, message) {
+    const formControl = input.parentElement;
+    const small = formControl.querySelector("small");
+    formControl.className = "form-control error";
+    small.innerHTML = message;
+    valid = false;
+  }
+
+  function setSuccessFor(input) {
+    const formControl = input.parentElement;
+    formControl.className = "form-control success";
+    valid = true;
+  }
+
+</script>
+
+</html>
